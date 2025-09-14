@@ -78,7 +78,7 @@ def search_restaurants(
                 # Get detailed place info
                 place_details = gmaps.place(place['place_id'], fields=[
                     'name', 'formatted_address', 'rating', 'user_ratings_total',
-                    'price_level', 'types', 'formatted_phone_number', 'website',
+                    'price_level', 'type', 'formatted_phone_number', 'website',
                     'opening_hours', 'geometry', 'place_id'
                 ])['result']
                 
@@ -97,7 +97,7 @@ def search_restaurants(
                     "rating": place_details.get('rating'),
                     "user_ratings_total": place_details.get('user_ratings_total'),
                     "price_level": place_price,
-                    "types": place_details.get('types', []),
+                    "types": place_details.get('type', []),
                     "phone": place_details.get('formatted_phone_number'),
                     "website": place_details.get('website'),
                     "currently_open": place_details.get('opening_hours', {}).get('open_now', None),
